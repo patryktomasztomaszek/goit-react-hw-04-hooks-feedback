@@ -1,0 +1,35 @@
+$border: 1px solid #000;
+
+.statistics {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+
+  padding: 0;
+  margin: 0;
+
+  list-style-type: none;
+
+  &__item {
+    width: 20%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    border-right: $border;
+    &:last-of-type {
+      border: 0;
+    }
+  }
+
+  &__key {
+    text-transform: capitalize;
+    font-size: 20px;
+    transform: rotate(-90deg);
+    margin: 40px 0;
+  }
+
+  &__value {
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
