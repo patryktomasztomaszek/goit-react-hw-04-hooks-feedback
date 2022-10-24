@@ -12,6 +12,9 @@ function Section({ title, children }) {
   );
 }
 
-Section.propTypes = {};
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
 
 export default Section;
