@@ -4,6 +4,7 @@ import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 import styles from './App.module.scss';
 
+// Declaring app initial state
 const INITIAL_STATE = {
   good: 0,
   neutral: 0,
@@ -13,9 +14,11 @@ const INITIAL_STATE = {
 export class App extends Component {
   constructor() {
     super();
+    // Initializing state in app
     this.state = { ...INITIAL_STATE };
   }
 
+  // Method for incrementing feedback value for each option (set dynamically)
   onLeaveFeedback = event => {
     event.preventDefault();
     const name = event.target.name;
@@ -23,6 +26,7 @@ export class App extends Component {
   };
 
   render() {
+    // CSS styling variable
     const { container } = styles;
 
     return (
