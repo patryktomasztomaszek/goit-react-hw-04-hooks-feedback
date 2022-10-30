@@ -8,7 +8,7 @@
 
 ## Użyte technologie 🐈
 
-> **HTML 5 | CSS/SCSS | React | Git**
+> **HTML5 | CSS3/SCSS | JS | React | Git**
 
 ## Wersja OnLine pracy domowej 🐈
 
