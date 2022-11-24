@@ -1,46 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from './Section/Section';
 import Statistics from './Statistics/Statistics';
 import styles from './App.module.scss';
 
-// Declaring app initial state
-const INITIAL_STATE = {
-  good: 0,
-  neutral: 0,
-  bad: 0,
-};
-
-export class App extends Component {
-  constructor() {
-    super();
-    // Initializing state in app
-    this.state = { ...INITIAL_STATE };
-  }
+export function App() {
+  const [feedback, setFeedback] = useState({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  });
 
   // Method for incrementing feedback value for each option (set dynamically)
-  onLeaveFeedback = event => {
+  const onLeaveFeedback = event => {
     event.preventDefault();
     const name = event.target.name;
-    this.setState(state => ({ [name]: state[name] + 1 }));
+    const incrementedValue = feedback[name] + 1;
+    setFeedback(oldState => ({ ...oldState, [name]: incrementedValue }));
   };
 
-  render() {
-    // CSS styling variable
-    const { container } = styles;
+  // CSS styling variable
+  const { container } = styles;
 
-    return (
-      <div className={container}>
-        <Section title="Please leave feedback">
-          <FeedbackOptions
-            options={this.state}
-            onLeaveFeedback={this.onLeaveFeedback}
-          />
-        </Section>
-        <Section title="Feedback">
-          <Statistics options={this.state} />
-        </Section>
-      </div>
-    );
-  }
+  return (
+    <div className={container}>
+      <Section title="Please leave feedback">
+        <FeedbackOptions options={feedback} onLeaveFeedback={onLeaveFeedback} />
+      </Section>
+      <Section title="Feedback">
+        <Statistics options={feedback} />
+      </Section>
+    </div>
+  );
 }
